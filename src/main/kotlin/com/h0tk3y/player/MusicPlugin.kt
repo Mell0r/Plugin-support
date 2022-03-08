@@ -81,4 +81,3 @@ data class MusicPluginPath(
     /** List of files that the application should use as the classpath elements (JARs or class directories). */
     val pluginClasspath: List<File>
 )
-

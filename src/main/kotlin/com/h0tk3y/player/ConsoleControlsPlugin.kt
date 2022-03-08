@@ -139,7 +139,7 @@ class ConsoleControlsPlugin(override val musicAppInstance: MusicApp) : MusicPlug
                     break
                 }
                 val finalValue = consoleHandlerPlugins.fold(parts as List<String>?) { acc, it ->
-                    if (acc != null) it.contribute(acc) else acc
+                            if (acc != null) it.contribute(acc) else acc
                 }
                 if (finalValue != null) {
                     println("Usage:\n")

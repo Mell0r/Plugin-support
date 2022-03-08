@@ -7,12 +7,15 @@ object TrackMetadataKeys {
     const val NAME = "name"
     const val ARTIST = "artist"
     const val ALBUM = "album"
+    const val PATH = "path"
 
     val basicKeys = setOf(NAME, ARTIST, ALBUM)
 }
 
 data class Track(val metadata: MutableMap<String, String>, val byteStreamProvider: () -> InputStream) {
-    constructor(metadata: Map<String, String>, file: File) : this(metadata.toMutableMap(), { file.inputStream() })
+    constructor(metadata: Map<String, String>, file: File) : this(metadata.toMutableMap(), { file.inputStream() }) {
+        this.metadata[TrackMetadataKeys.PATH] = file.absolutePath
+    }
 }
 
 val Track.simpleStringRepresentation

@@ -9,13 +9,22 @@ fun main(args: Array<String>) {
             ConsoleControlsPlugin::class,
             BasicConsoleControlsPlugin::class,
             ListPluginsInConsolePlugin::class,
-            StaticPlaylistsLibraryContributor::class
+            StaticPlaylistsLibraryContributor::class,
+            MusicLibraryPersistencePlugin::class
         ).map { MusicPluginPath(listOf(it.java.canonicalName), emptyList()) }
 
     val externalPlugins = listOf(
         MusicPluginPath(
             listOf("com.h0tk3y.third.party.plugin.UsageStatsPlugin"),
             listOf(File(pluginsPath).resolve("third-party-plugin.jar"))
+        ),
+
+        MusicPluginPath (
+            listOf(
+                "com.mell0r.music.library.extending.plugin.ConsoleContributor",
+                "com.mell0r.music.library.extending.plugin.MusicLibraryContributor"
+            ),
+            listOf(File(pluginsPath).resolve("music-library-extending-plugin.jar"))
         )
     )
 

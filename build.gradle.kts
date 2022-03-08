@@ -24,7 +24,8 @@ dependencies {
     testImplementation(kotlin("test-junit"))
     testCompileOnly(project(":third-party-plugin"))
 
-    pluginsRuntime(project(":third-party-plugin")) { isTransitive = false}
+    pluginsRuntime(project(":third-party-plugin")) { isTransitive = false }
+    pluginsRuntime(project(":music-library-extending-plugin")) { isTransitive = false }
 }
 
 val packedPluginsRuntimeDirectory = buildDir.resolve("pluginsRuntime")
